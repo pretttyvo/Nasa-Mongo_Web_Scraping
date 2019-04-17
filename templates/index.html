@@ -6,25 +6,53 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Life on Mars</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/templates/style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       </head>
 
     <body>
+        <div class="row justify-content-center">
         <div class="container">
       
           <div class="jumbotron text-center">
             <h1>Mission to Mars</h1>
             <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
           </div>
-      
-          <!-- Craigslist Listings -->
-          <div class="row" id="craiglist-listings">
+
+          <div class="row">
             <div class="col-lg-12">
-              <h2 class="heading">Latest Mars News</h4>
-              <small></small>
-            </div>
-          </div>
+  
+              <h3 class="heading">Latest Mars News</h3>
+              
+              <h5>{{mars_data.news_headline}}</h5>
+              <p>{{mars_data.news_summary}}</p>
+              <div class="row">
+                <div class="col-lg-8">
+                    <h3>Featured Mars Image</h3>
+                    
+                    <img src={{mars_data.featured_image_url}} alt="Featured Image">
+                </div> <!-- col-lg-8-->
+                <div class="col-lg">
+                    <div class="weather"></div>
+                    <h5>Current Weather on Mars</h5>
+                    {{mars_data.mars_weather}}
+                    <br>
+                    <br>
+                    <h5>Mars Facts</h5>
+                    <!-- <table> -->
+
+                      {{mars_data.mars_table|safe}}
+
+                    <!-- </table> -->
+                </div> <!-- col-lg-->
+              </div><!-- </row>  -->
+              </div><!-- </col-lg-12> -->
+            </div> <!-- row -->
+        </div><!-- </container> -->
+        </div> <!--row justify-content-center-->
       
-        </div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
      </body>
 </html>

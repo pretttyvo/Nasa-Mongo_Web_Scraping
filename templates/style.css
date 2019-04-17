@@ -1,5 +1,10 @@
 
 .weather {
-    border: 10px;
+    border: 20px;
     border-color:darkgray;
 }
+
+.primary{
+    /* height: 25%:
+    width: 25%;
+} */

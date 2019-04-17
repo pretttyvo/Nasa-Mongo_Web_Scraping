@@ -25,4 +25,4 @@ def scraper():
 
 if __name__ == "__main__":
     app.run(debug=True)
-    print(mars_data)
+    print(featured_image_url)

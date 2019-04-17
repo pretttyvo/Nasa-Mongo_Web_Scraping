@@ -1,5 +1,6 @@
 from splinter import Browser
 from bs4 import BeautifulSoup
+import pandas as pd
 
 
 def init_browser():
@@ -10,7 +11,8 @@ def init_browser():
 
 def scrape():
     browser = init_browser()
-
+    # collect all data into a single dictionary
+    mars_data = {}
     # NASA MARS NEWS
     # connect browser to url and parse data images of the titles and summaries
     mars_url = "https://mars.nasa.gov/news/"
@@ -63,6 +65,10 @@ def scrape():
             'Data' :separated[1]
         })
         result.append(results)
+    df = pd.DataFrame(result)
+    df = df[['Physical', 'Data']].set_index(['Physical'])
+    mars_facts_table =  df.to_html().strip()
+
     
     # MARS HEMISPHERES
     # connect browser to url and parse data images of the hemisphere
@@ -87,15 +93,14 @@ def scrape():
         })
         hemisphere_image_urls.append(hemisphere_image_dict)
     
-    # collect all data into a single dictionary
-    mars_data = {}
+    
     # news headline
     mars_data['news_headline'] = titles
     mars_data['news_summary'] = summary
     # JPL featured photo
     mars_data['featured_image_url'] = featured_image_url
     # mars facts
-    mars_data['table'] = table
+    mars_data['mars_table'] = mars_facts_table
     #mars weather
     mars_data['mars_weather'] = mars_weather
     # mars hemispheres
@@ -103,3 +108,6 @@ def scrape():
 
     return(mars_data)
 
+if __name__ == "__main__":
+
+    print(featured_image_url)
