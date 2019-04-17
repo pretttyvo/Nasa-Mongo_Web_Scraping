@@ -1,10 +1,57 @@
+/* CSS styling for App */
 
+/* Index page */
+/* ------------------------------------------------------- */
+/* Make image auto to column size */
+img {
+    width: 100%;
+}
+
+/* place border around box */
 .weather {
-    border: 20px;
-    border-color:darkgray;
+    border: 3px;
+    border-color: lightgrey;
+    border-style: solid;
+    padding: 10px;
+  }
+
+/* headers */
+
+h3 {
+    text-align: center;
 }
 
-body {
-    background-color: grey;
+/* columns */
+.col-lg-12 {
+    text-align: center;
 }
+/* aesteics */
+
+  .footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: darkgrey;
+    height: 40px;
+    border-top-color: lightcyan;
+    border-top-width: 5px;
+    border-top-style: solid;
+  }
+
+  .container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 60px 40px 60px 40px ;
+  }
+
+  a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+}
+
+.heading {
+    color: black;
+}
+  /* ------------------------------------------------------- */
 

@@ -12,46 +12,76 @@
 
     <body>
         <div class="row justify-content-center">
+
         <div class="container">
-      
+          <!-- Scrape function button -->
           <div class="jumbotron text-center">
             <h1>Mission to Mars</h1>
             <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
-          </div>
+          </div> <!--jumbotron text-center-->
 
-          <div class="row">
+          <div class="row"> 
+
             <div class="col-lg-12">
-  
-              <h3 class="heading">Latest Mars News</h3>
-              
+              <!-- Headlines of Primary Article -->
+              <a class="heading" href='https://mars.nasa.gov/news/'><h3>Latest Mars News</h3></a>
               <h5>{{mars_data.news_headline}}</h5>
               <p>{{mars_data.news_summary}}</p>
+
               <div class="row">
+                
                 <div class="col-lg-8">
+                    <!-- Featured Mars Image -->
                     <h3>Featured Mars Image</h3>
-                    
-                    <img src={{mars_data.featured_image_url}} alt="Featured Image">
+                    <hr />
+                    <div class='image_main'>
+                      <a href={{mars_data.featured_image_url}}><img src='{{mars_data.featured_image_url}}' alt="Featured Image"></a>
+                    </div>
                 </div> <!-- col-lg-8-->
+
                 <div class="col-lg">
                     <div class="weather">
+                    <!-- Current Weather on Mars information box -->
                     <h5>Current Weather on Mars</h5>
                     {{mars_data.mars_weather}}
                     </div>
                     <br>
                     <br>
-                    <h5>Mars Facts</h5>
-                    <!-- <table> -->
-
+                    <!-- Mars Facts Table -->                    
+                      <h5 >Mars Facts</h5>    
                       {{mars_data.mars_table|safe}}
-
-                    <!-- </table> -->
                 </div> <!-- col-lg-->
-              </div><!-- </row>  -->
-              </div><!-- </col-lg-12> -->
-            </div> <!-- row -->
+
+               </div><!-- </row>  -->
+              <!-- Hemisphere Images -->
+               <hr />
+               <a class='heading' href='https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'>
+               <h3><b>Mars Hemispheres</b></h3>
+              </a>
+               <hr />
+               <div class="row">
+                  {% for url in mars_data.hemisphere_image_urls %}
+                  <div class="col-lg-6">
+                  <p> 
+                    <a href = {{url.img_url}}><img src='{{ url.img_url }}' alt="hemisphere"></a>
+                    <b class="hemispheres">{{url.title}}</b>
+                    <br>
+                  </p>
+                </div><!--col-lg-6-->
+                  {% endfor %}
+
+              </div> <!--row-->
+            </div><!-- </col-lg-12> -->
+          </div> <!-- row -->
         </div><!-- </container> -->
         </div> <!--row justify-content-center-->
-      
+        
+        <div class="footer">
+            <p>
+                
+            </p>
+        </div>
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

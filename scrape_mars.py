@@ -108,6 +108,8 @@ def scrape():
 
     return(mars_data)
 
+    browser.quit
+
 if __name__ == "__main__":
 
     print(featured_image_url)
