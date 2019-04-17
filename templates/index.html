@@ -6,8 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Life on Mars</title>
-        <link rel="stylesheet" href="/templates/style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
       </head>
 
     <body>
@@ -33,9 +33,10 @@
                     <img src={{mars_data.featured_image_url}} alt="Featured Image">
                 </div> <!-- col-lg-8-->
                 <div class="col-lg">
-                    <div class="weather"></div>
+                    <div class="weather">
                     <h5>Current Weather on Mars</h5>
                     {{mars_data.mars_weather}}
+                    </div>
                     <br>
                     <br>
                     <h5>Mars Facts</h5>
